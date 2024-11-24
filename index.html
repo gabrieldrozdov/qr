@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QR</title>
+	<link rel="stylesheet" href="style.css">
+
+	<meta name="author" content="No Replica">
+	<meta name="keywords" content="Tool, Graphic Design, Generative Art, QR Codes">
+	<meta name="description" content="A fabric of QR codes.">
+	<meta property="og:url" content="TODO">
+	<meta name="og:title" property="og:title" content="TODO">
+	<meta property="og:description" content="A fabric of QR codes.">
+	<meta property="og:image" content="./opengraph.png">
+	<link rel="icon" type="png" href="./favicon.png"></link>
+
+	<!-- QR code generator source library -->
+	<!-- https://github.com/davidshimjs/qrcodejs -->
+	<script src="qrcode.js"></script>
+</head>
+<body>
+	<div class="container" data-controls="true">
+		<div class="content">
+			<h1 class="title">QR</h1>
+
+			<div class="controls">				
+				<div class="controls-group">
+					<h2 class="controls-group-heading">Enter QR Code Content</h2>
+					<div class="controls-group-content">
+						<div class="controls-group-subcontent">
+							<input type="text" id="controls-text" name="controls-text" placeholder="TYPE HERE" oninput="updateQRCodeText(this.value);">
+						</div>
+					</div>
+				</div>
+
+				<div class="controls-group">
+					<h2 class="controls-group-heading">Set Colors</h2>
+					<div class="controls-group-content">
+						<div class="controls-group-subcontent">
+							<label class="controls-group-label">Foreground</label>
+							<input type="color" value="#000000" id="controls-foreground" name="controls-foreground" oninput="updateForegroundColor(this.value);">
+						</div>
+						<div class="controls-group-subcontent">
+							<label class="controls-group-label">Background</label>
+							<input type="color" value="#ffffff" id="controls-background" name="controls-background" oninput="updateBackgroundColor(this.value);">
+						</div>
+					</div>
+				</div>
+				
+				<div class="controls-group">
+					<h2 class="controls-group-heading">Generate QR Code</h2>
+					<div class="controls-group-content">
+						<button onclick="generateQRCode();">Generate</button>
+					</div>
+				</div>
+
+				<div class="controls-group">
+					<h2 class="controls-group-heading">Download Image</h2>
+					<div class="controls-group-content">
+						<button onclick="downloadQRCode('png');">PNG</button>
+						<button onclick="downloadQRCode('svg');">SVG</button>
+					</div>
+				</div>
+
+				<div class="controls-group">
+					<h2 class="controls-group-heading">Print Pattern</h2>
+					<div class="controls-group-content">
+						<button onclick="printQRCode('letter')">8.5"×11"</button>
+						<button onclick="printQRCode('tabloid')">11"×17"</button>
+						<button onclick="printQRCode('poster')">24"×36"</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="qrcode">
+				<svg id="qrcode-svg">
+					<g id="qrcode"/>
+				</svg>
+				<div id="qrcode-png"></div>
+			</div>
+
+			<button class="controls-hide" onclick="hideControls();">Hide Controls</button>
+		</div>
+
+		<div class="message">Click anywhere to show controls</div>
+
+		<div class="pattern-container" onclick="showControls();" data-active="0">
+			<div class="pattern"></div>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
