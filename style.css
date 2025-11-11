@@ -23,6 +23,7 @@
 body {
 	font-family: "Limkin", sans-serif;
 	font-variation-settings: "wght" 500, "SRFF" 0;
+	font-weight: 500;
 	font-size: 12px;
 	line-height: 1em;
 	background-color: var(--secondary);
@@ -127,6 +128,7 @@ input[type="color"]:active {
 	transform: translateX(-50%);
 	font-family: inherit;
 	font: inherit;
+	text-wrap: balance;
 	outline: .5px solid var(--primary);
 	background-color: var(--secondary);
 	border-radius: unset;
@@ -136,9 +138,17 @@ input[type="color"]:active {
 	letter-spacing: .2em;
 	text-align: center;
 	display: flex;
+	gap: 0 .5em;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	min-height: 40px;
+}
+.title a {
+	text-decoration: none;
+	color: var(--primary);
+	font-variation-settings: "wght" 700, "SRFF" 0;
+	font-weight: 700;
 }
 
 /* Controls */
@@ -149,6 +159,7 @@ input[type="color"]:active {
 	gap: 40px;
 	outline: .5px solid var(--primary);
 	padding: 40px;
+	overflow: hidden;
 }
 .controls-group {
 	display: flex;
@@ -167,7 +178,7 @@ input[type="color"]:active {
 	grid-auto-flow: column;
 	grid-auto-columns: 1fr;
 	gap: 10px;
-	overflow-x: scroll;
+	overflow: scroll;
 }
 .controls-group-subcontent {
 	display: flex;
@@ -177,6 +188,7 @@ input[type="color"]:active {
 .controls-group-label {
 	font-size: 10px;
 	font-variation-settings: "wght" 550, "SRFF" 0;
+	font-weight: 550;
 	text-transform: uppercase;
 	letter-spacing: .2em;
 	text-align: center;
@@ -192,12 +204,12 @@ input[type="color"]:active {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	white-space: nowrap;
 	transform: translate(-50%, -50%);
 	font-family: inherit;
 	font: inherit;
 	border: .5px solid var(--primary);
 	background-color: var(--secondary);
+	max-width: 80vw;
 	border-radius: unset;
 	color: var(--primary);
 	padding: .5em 1.1em .3em 1.3em;
@@ -293,7 +305,7 @@ input[type="color"]:active {
 }
 
 /* Mobile */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
 	.title {
 		position: static;
 		transform: unset;

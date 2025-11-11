@@ -12,6 +12,7 @@ function updateBackgroundColor(newColor) {
 let qrCodeText = 'https://noreplica.com/';
 function updateQRCodeText(newText) {
 	qrCodeText = newText;
+	generateQRCode();
 }
 
 // Generate QR codes
