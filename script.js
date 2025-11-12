@@ -1,11 +1,20 @@
 // Colors
 let foregroundColor = "#000000";
 let backgroundColor = "#ffffff";
+let delay;
 function updateForegroundColor(newColor) {
+	clearTimeout(delay);
 	foregroundColor = newColor;
+	delay = setTimeout(() => {
+		generateQRCode();
+	}, 250)
 }
 function updateBackgroundColor(newColor) {
+	clearTimeout(delay);
 	backgroundColor = newColor;
+	delay = setTimeout(() => {
+		generateQRCode();
+	}, 250)
 }
 
 // QR code text
